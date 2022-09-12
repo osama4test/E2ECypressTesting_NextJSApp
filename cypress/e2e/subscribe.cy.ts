@@ -22,4 +22,17 @@ describe("Newsletter Subscribe Form", () => {
 
 
     })
+
+
+    it("does not allow the same user to subscribe to the email list", () => {
+
+
+      cy.getByData("email-input").type("john@example.com")
+      cy.getByData("submit-button").click()
+      cy.getByData("server-error-message").should("exist")
+
+
+  })
+
+
   })
